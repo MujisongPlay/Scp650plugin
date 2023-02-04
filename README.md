@@ -1,2 +1,32 @@
 # SCP-SL-SCP-650-Plugin
 Plugin for SCP-650 schematic of MER plugin based on Exiled framework of SCP: Secret Laboratory.
+
+Requirements:
+0. Exiled framework. https://github.com/Exiled-Team/EXILED
+1. MapEditorReborn plugin. https://github.com/Michal78900/MapEditorReborn
+
+Installation:
+1. Put scp650 schematic folder to your %appdata%\Roaming\Exiled\Configs\MapEditorReborn\Schematics.
+2. Install scp650plugin.dll to %appdata%\Roaming\Exiled\Plugins.
+3. **Run Local Admin. And Exit.**
+4. **Put global.yml to %appdata%\Roaming\Exiled\Configs\SCP-650 poses. global.yml is pose collection file.**
+5. Check out whether it operates normally.
+
+**Edit Poses/Create Poses:**
+1. Download SL-CustomObjects. https://github.com/Michal78900/MapEditorReborn/releases/tag/2.1.2
+2. Load scp650 schematic folder. By using 'import schematic' of bar 'schematic'.
+3. Add 'Pose Recorder'script to root object: SCP-650.
+4. Edit property 'size' of 'Objects' of the script to 13.
+5. Drag all mixamorig:{joint name} to each Elements of the property.
+5-1. If you're going to add more joint to edit, you can add more mixamorig.
+6. Make your poses. **SCALE DOESN'T SUPPORTED.**
+7. Press play button. Then there will be a log on console tab.
+8. Press it to see all of log content. And copy it.
+9. Open global.yml.
+10. Write like following.
+
+```
+- pose_name: {pose_name_here}
+  transform_per_joint:
+{paste_console_content_here}
+```
