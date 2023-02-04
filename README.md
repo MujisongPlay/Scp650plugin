@@ -19,11 +19,11 @@ Installation:
 4. Edit property 'size' of 'Objects' of the script to 13.
 5. Drag all mixamorig:{joint name} to each Elements of the property.
 5-1. If you're going to add more joint to edit, you can add more mixamorig.
-6. Make your poses. **SCALE DOESN'T SUPPORTED.**
-7. Press play button. Then there will be a log on console tab.
-8. Press it to see all of log content. And copy it.
-9. Open global.yml.
-10. Write like following.
+6. **A primitive object with mixamorig in its name means that it will position a joint with the same name on same position.**
+7. Make your poses. **SCALE DOESN'T SUPPORTED.**
+8. Press play button. Then there will be a log on console tab.
+9. Press it to see all of log content. And copy it.
+10. Open global.yml. And write following.
 
 ```
 - pose_name: {pose_name_here}
