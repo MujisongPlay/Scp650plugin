@@ -30,3 +30,4 @@ Installation:
   transform_per_joint:
 {paste_console_content_here}
 ```
+11. If you want to set the pos to default:standing, just select all mixamorig and set rotation to 0 0 0.
