@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -122,7 +122,7 @@ namespace Scp650Plugin
         {
             foreach (Scp650ai ai in Scp650Plugin.scp650s)
             {
-                if (ev.Targets.Contains(new Player(ai.Target)))
+                if (ev.Targets.Contains(Player.Get(ai.Target)))
                 {
                     ai.TryTeleport(ev.Targets);
                 }
