@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -95,6 +95,13 @@ namespace Scp650Plugin
                         }
                     }
                     Target = targets.RandomItem();
+                    if (config.TargetingAmbient != -1)
+                    {
+                        Exiled.API.Extensions.MirrorExtensions.SendFakeTargetRpc(Player.Get(Target), ReferenceHub.HostHub.networkIdentity, typeof(AmbientSoundPlayer), "RpcPlaySound", new object[]
+                        {
+                            config.TargetingAmbient
+                        });
+                    }
                     LookingForTarget = false;
                     FollowTime = UnityEngine.Random.Range(config.TargetFollowingMinTime, config.TargetFollowingMaxTime);
                     TeleportTime = UnityEngine.Random.Range(config.TeleportMinCoolTime, config.TeleportMaxCoolTime);
@@ -198,16 +205,16 @@ namespace Scp650Plugin
             }
             foreach (ReferenceHub hub in ReferenceHub.AllHubs)
             {
+                if (hub.isLocalPlayer || hub == Target)
+                {
+                    continue;
+                }
                 if (blinker != null)
                 {
                     if (blinker.Contains(Player.Get(hub)))
                     {
                         continue;
                     }
-                }
-                if (hub.isLocalPlayer || hub == Target)
-                {
-                    continue;
                 }
                 if (IsWatching(hit.point + new Vector3(0f, 1.2f, 0f), hub))
                 {
