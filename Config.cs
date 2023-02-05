@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,6 +46,7 @@ namespace Scp650Plugin
         };
         public RoleTypeId[] TargetBlacklistRoles { get; set; } = new RoleTypeId[] { };
         public bool OverlapTarget { get; set; } = false;
+        public int TargetingAmbient { get; set; } = -1;
 
 
         //Target
