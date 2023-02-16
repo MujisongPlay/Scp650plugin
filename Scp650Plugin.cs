@@ -78,6 +78,10 @@ namespace Scp650Plugin
                         possibleDoors.Add(variant);
                     }
                 }
+                if (possibleDoors.Count == 0)
+                {
+                    continue;
+                }
                 Transform transform = possibleDoors.RandomItem().transform;
                 Vector3 pos = transform.position + 0.75f * (UnityEngine.Random.Range(0, 1) * 2f - 1f) * transform.forward;
                 if (Config.LogsItslocation)
