@@ -86,9 +86,9 @@ namespace Scp650Plugin
                 Vector3 pos = transform.position + 0.75f * (UnityEngine.Random.Range(0, 1) * 2f - 1f) * transform.forward;
                 if (Config.LogsItslocation)
                 {
-                    ServerConsole.AddLog("SCP-650 Spawned in: " + MapGeneration.RoomIdUtils.RoomAtPosition(pos).name);
+                    ServerConsole.AddLog(Scp650Plugin.Instance.Config.SchematicName + " Spawned in: " + MapGeneration.RoomIdUtils.RoomAtPosition(pos).name);
                 }
-                MapEditorReborn.API.Features.ObjectSpawner.SpawnSchematic("scp650", pos, Quaternion.Euler(new Vector3(0f, UnityEngine.Random.Range(0f, 360f), 0f)));
+                MapEditorReborn.API.Features.ObjectSpawner.SpawnSchematic(Scp650Plugin.Instance.Config.SchematicName, pos, Quaternion.Euler(new Vector3(0f, UnityEngine.Random.Range(0f, 360f), 0f)));
             }
         }
     }
@@ -97,7 +97,7 @@ namespace Scp650Plugin
     {
         public void OnSpawn(SchematicSpawnedEventArgs ev)
         {
-            if (ev.Name.Equals("scp650", StringComparison.InvariantCultureIgnoreCase))
+            if (ev.Name.Equals(Scp650Plugin.Instance.Config.SchematicName, StringComparison.InvariantCultureIgnoreCase))
             {
                 Scp650Plugin.scp650s.Add(ev.Schematic.gameObject.AddComponent<Scp650ai>());
             }
@@ -105,7 +105,7 @@ namespace Scp650Plugin
 
         public void OnDespawn(SchematicDestroyedEventArgs ev)
         {
-            if (ev.Name.Equals("scp650", StringComparison.InvariantCultureIgnoreCase) && ev.Schematic.gameObject.TryGetComponent<Scp650ai>(out Scp650ai ai))
+            if (ev.Name.Equals(Scp650Plugin.Instance.Config.SchematicName, StringComparison.InvariantCultureIgnoreCase) && ev.Schematic.gameObject.TryGetComponent<Scp650ai>(out Scp650ai ai))
             {
                 Scp650Plugin.scp650s.Remove(ai);
             }
