@@ -19,6 +19,7 @@ namespace Scp650Plugin
         //Setting
         public bool IsEnabled { get; set; } = true;
         public bool Debug { get; set; } = false;
+        public string SchematicName { get; set; } = "scp650";
         public string PoseFolderPath { get; set; } = Path.Combine(Paths.Configs, "SCP-650 poses");
         public string PoseFile { get; set; } = "global.yml";
 
