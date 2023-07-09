@@ -293,13 +293,13 @@ namespace Scp650Plugin
                     maskLayer = VisionInformation.VisionLayerMask;
                 }
                 flag3 = (Physics.RaycastNonAlloc(new Ray(sourceCam.position, vector.normalized), VisionInformation.RaycastResult, flag2 ? magnitude : vector.magnitude, maskLayer) == 0);
-                if (VisionInformation.RaycastResult[0].collider.transform.root.gameObject.TryGetComponent<Scp650ai>(out Scp650ai ai))
+                if (VisionInformation.RaycastResult[0].collider.transform.root.gameObject.TryGetComponent<Scp650ai>(out _))
                 {
                     flag3 = true;
                 }
                 flag = flag3;
             }
-            bool flag4 = !CheckAttachments(source) && FlickerableLightController.IsInDarkenedRoom(target);
+            bool flag4 = !CheckAttachments(source) && RoomLightController.IsInDarkenedRoom(target);
             flag &= !flag4;
             return new VisionInformation(source, target, flag, isOnSameFloor, lookingAmount, magnitude, flag2, flag3, flag4);
         }
