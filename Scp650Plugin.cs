@@ -73,7 +73,8 @@ namespace Scp650Plugin
                 List<DoorVariant> possibleDoors = new List<DoorVariant> { };
                 foreach (DoorVariant variant in DoorVariant.AllDoors)
                 {
-                    if (variant is BreakableDoor && variant.Rooms != null && Config.SpawnableZone.Contains(variant.Rooms[0].Zone) && variant.Rooms.Length > 1)
+                    if (variant.Rooms == null || variant.Rooms.Length == 0) continue;
+                    if (variant is BreakableDoor && Config.SpawnableZone.Contains(variant.Rooms[0].Zone) && variant.Rooms.Length > 1)
                     {
                         possibleDoors.Add(variant);
                     }
