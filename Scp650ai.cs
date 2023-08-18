@@ -94,6 +94,10 @@ namespace Scp650Plugin
                             targets.Remove(hub);
                         }
                     }
+                    if (targets.Count == 0)
+                    {
+                        return;
+                    }
                     Target = targets.RandomItem();
                     if (config.TargetingAmbient != -1)
                     {
